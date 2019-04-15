@@ -1,0 +1,380 @@
+@@import url('https://fonts.googleapis.com/css?family=Lato|Raleway');
+
+
+
+
+body{
+  background-color: #f2f2f2;
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 16px;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+
+  margin-top: 70px;
+
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: "Raleway";
+  font-weight: 300;
+  color: #333;
+}
+
+h7 {
+  font-family: "Raleway";
+  font-weight: 30;
+  color: #333;
+}
+
+p{
+  line-height: 28px;
+  margin-bottom: 25px;
+}
+
+.centered{
+  text-align:center;
+}
+
+a{
+
+}
+
+b{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+a:hover, a:focus{
+  color: #7b7b7b;
+  text-decoration: none;
+  outline-color: 0;
+}
+
+hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: lem 0;
+}
+
+.btn{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.form-control1{
+  width: 600px;
+}
+
+.form-control2{
+  width: 300px;
+}
+.form-control{
+  width: 45px;
+}
+
+.col-lg-2{
+  margin-left: 200px;
+}
+
+.navbar{
+  font-weight: 800;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+.media{
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+.navbar-inversed{
+  background: #2d2d2d;
+  border-color: #2d2d2d;
+
+}
+.navbar-inversed .navbar-nav > .active > a{
+  background-color: #ff7878;
+}
+
+.nav-link{
+
+}
+
+.navbar-inversed .navbar-brand{
+  color:#999;
+  font-weight: bolder;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.navbar-brand1{
+  color:#999;
+  font-weight: bolder;
+  font-size: 22px;
+  letter-spacing: 1px;
+  display: block;
+}
+
+img-responsive{
+  width: 10px;
+  height: 10px;
+  margin-left: 15px;
+}
+
+logreg{
+  margin-left: 20px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+div.col-4{
+  text-align: center;
+}
+
+
+body > .container {
+    text-align:center;
+    position: center;
+    padding: 80px 15px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+.question_item {
+    border: solid 1px #adadad;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.question_item img {
+    height: 50px;
+    width: 50px;
+}
+
+.one_question_item{
+  padding: 15px;
+}
+
+.one_question_item img {
+    height: 100px;
+    width: 100px;
+}
+
+.pagination{
+  margin-top: 30px;
+  position: : center;
+  margin-left: 700px;
+}
+
+.row{
+  margin-top: 100px;
+}
+
+.newquestion{
+  font-size: 25px;
+  display: inline;
+}
+
+.wrongpassword{
+  font-size: 15px;
+  display: block;
+  color: red;
+}
+
+.hotquestion{
+  font-size: 18px;
+  display: inline;
+  margin-left: 200px;
+
+}
+
+.btn-sm{
+  margin-top: 10px;
+  display: inline;
+}
+
+.plusminus{
+  margin-left: 20px;
+  text-align: center;
+}
+
+.form-group{
+  width: 600px;
+}
+
+.form-group-67{
+  padding-top: 20px;
+  margin: 0;
+}
+
+.form-control{
+  width: 500px;
+}
+
+.group-2{
+    margin-top: 200px;
+}
+
+.container{
+  margin: 50px;
+  padding: 20px;
+}
+
+.col-4{
+  margin-left: 0;
+}
+
+.form-control3{
+  width: 750px;
+  height: 100px;
+  display: block;
+}
+
+
+
+
+
+
+.myheaderleft{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 20px;
+}
+.myheaderight{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 0;
+}
+
+.headercolor{
+    background: grey;
+    color: white;
+    link: white;
+    height:80px;
+}
+
+div.ratingred:hover {
+    background: red; /* Цвет фона под ссылкой */
+    color: red; /* Цвет ссылки */
+}
+
+a.ratinggreen:hover {
+    background: green; /* Цвет фона под ссылкой */
+    color: green; /* Цвет ссылки */
+}
+
+.like{
+    background-color: green;
+    height: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+}
+
+.dislike{
+    background-color: red;
+    height: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 0;
+}
+
+.populartags{
+    float : left;
+}
+
+.popsize{
+    width: 75px ;
+}
+ .popclaer{
+     clear : both;
+ }
+
+pre.tags{
+    border:none;
+    background-color:#FFFFFF;
+ }
+
+.spisok{
+    font-size: 18px;
+    font-family: Arial;
+}
+
+.h33{
+    font-size: 35px;
+    font-family : Arial;
+}
+
+#perl{
+    color : Red;
+    font-size: 20px;
+}
+
+#Python{
+    font-size: 18px;
+}
+
+#Tp{
+    font-size: 22px;
+    color: black;
+}
+#Django{
+    font-size: 20px;
+    color: green;
+}
+
+#MySql{
+    font-size: 19px;
+}
+
+#mail{
+    font-size: 22px;
+    color: Blue;
+}
+
+#Vol{
+    font-size: 18px;
+    color: #122b40;
+}
+
+#Chrome{
+    font-size: 20px;
+}
