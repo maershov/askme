@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap сайт</title>
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/main.css">
+</head>
+<body>
+
+
+  <header>
+          <!-- Fixed navbar -->
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+              <a class="navbar-brand" href="#">Ask project</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="form-inline mt-2 mt-md-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </div>
+
+              <div>
+                <button1 class="btn btn-outline-success my-2 my-sm-0" type="submit">Ask</button1>
+              </div>
+
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <ul class="navbar-nav mr-auto">
+                  </ul>
+                  <form class="form-inline mt-2 mt-md-0">
+                      <div class="media">
+                        <img src="images/s1200.jpeg"width= 70px height= 60px margin-left = 15px class="mr-3" alt="...">
+                    <div class="media-body">
+                      <div>
+                          <label for="userName1">Dr.Pepper</label>
+                      </div>
+                      <div>
+                          <a href="#">Settings</a>
+                      </div>
+                      <div>
+                          <a href="#">Log out</a>
+                      </div>
+                    </div>
+                  </form>
+          </nav>
+  </header>
+
+  <main>
+    <main role="main" class="container">
+          <div class="row">
+              <div class="col-8">
+                <div class = "newquestion">Settings</div>
+                <div>
+                    <label for="settings">Dr.Pepper</label>
+                </div>
+                <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">LOGIN</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">EMAIL</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">NICKNAME</label>
+            <input type="nickname" class="form-control" id="exampleInputNickname1" placeholder="Nickname">
+          </div>
+          <form>
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Upload avatar</label>
+            <br><br>
+              <img src="images/s1200.jpeg" width= 70px height= 60px margin-left = 15px alt="" class="img-responsive">
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+        </form>
+        <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+
+
+              </div>
+              <div class="col-4">Popular Tags
+                    <br>
+                    <a class="btn btn-primary" href="#" role="button">Mail</a>
+                    <button class="btn btn-primary" type="submit">MySQL</button>
+                    <input class="btn btn-primary" type="button" value="TP">
+                    <input class="btn btn-primary" type="submit" value="Bootstrap">
+                    <input class="btn btn-primary" type="reset" value="Reset">
+                    <br><br><br>
+                    <h4>Best Members</h4>
+                    <a class="navbar-brand1" href="#">Mr. Freeman</a>
+                    <a class="navbar-brand1" href="#">Dr. House</a>
+                    <a class="navbar-brand1" href="#">Bender</a>
+                    <a class="navbar-brand1" href="#">Queen Victoria</a>
+
+
+              </div>
+
+          </div>
+
+
+      </main>
+  </main>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+</body>
+</html>
