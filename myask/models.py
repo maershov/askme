@@ -8,66 +8,111 @@ import datetime
 
 # Create your models here.
 
-class QuestionManager(models.Manager):
-    def new(self):
-        return self.order_by('-question_added_at')
+class ModelManager(models.Manager):
+def sortByDate(self):
+		objects_list = []
+		questions = self.order_by('-date')
+for question in questions:
+			list_element = self.model(id=question.id, text=question.text, title=question.title, ratin=question.ratin, tags=question.tags.all())
+			list_element.answers_count = Answer.objects.filter(question_id=question.id).count()
+			objects_list.append(list_element)
+return objects_list
 
-    def rat(self):
-        return self.order_by('-question_rank')
+def bestUsers(self):
+from django.db import connection
+		cursor = connection.cursor()
+		cursor.execute("""
+			SELECT user.nick, COUNT(*) as count
+			FROM myask_user user,myask_answer answers
+			WHERE user.id = answers.answerer_id
+			GROUP BY user.id
+			ORDER BY count DESC""")
+		user_list = []
+for row in cursor.fetchall()[:5]:
+			user = self.model(nick = row[0])
+			user_list.append(user)
+return user_list
 
-    def newAns(self,id):
-        return self.order_by('-answer_added_at').filter(question_id = id)
+def bestTags(self):
+from django.db import connection
+		cursor = connection.cursor()
+		cursor.execute("""
+			SELECT tag.text, COUNT(*) as count
+			FROM myask_question_tags question_tags, myask_tag tag
+			WHERE tag.id = question_tags.tag_id
+			GROUP BY tag.id
+			ORDER BY count DESC""")
+		tag_list = []
+for row in cursor.fetchall()[:5]:
+			tag = self.model(text = row[0])
+			tag_list.append(tag)
+return tag_list
 
-    def getbytag(self,tag):
-        return self.filter(question_tag__tag_question = tag).order_by('-question_added_at')
+def bestQuestions(self):
+		objects_list = []
+		questions = self.order_by('-ratin')
+for question in questions:
+			list_element = self.model(id=question.id, text=question.text, title=question.title, ratin=question.ratin, tags=question.tags.all())
+			list_element.answers_count = Answer.objects.filter(question_id=question.id).count()
+			objects_list.append(list_element)
+return objects_list
 
-    def search_for_username(self,this_username):
-        return self.filter(username = this_username)
+def questionsByTag(self, tag):
+from django.db import connection
+		cursor = connection.cursor()
+		cursor.execute("""
+			SELECT question_tags.question_id, tag.text
+			FROM myask_question_tags question_tags, myask_tag tag
+			WHERE tag.id = question_tags.tag_id AND tag.text = '""" + tag + """'
+			ORDER BY tag.id DESC""")
+		objects_list = []
+for row in cursor.fetchall()[:5]:
+			question = Question.objects.get(pk=row[0])
+			list_element = self.model(id=question.id, text=question.text, title=question.title, ratin=question.ratin, tags=question.tags.all())
+			list_element.answers_count = Answer.objects.filter(question_id=question.id).count()
+			objects_list.append(list_element)
+return objects_list
 
+def answersOnQuestion(self, id):
+return Answer.objects.filter(question_id=id)
 
+class User(models.Model):
+	login = models.CharField(max_length=200)
+	nick = models.CharField(max_length=200)
+	email = models.EmailField()
+	password = models.CharField(max_length=200)
+	avatar = models.FileField(upload_to='uploads/')
+	date = models.DateTimeField(auto_now=True)
+	objects = ModelManager()
 
-class Profile(models.Model):
-    profile = models.OneToOneField(User, on_delete=models.PROTECT)
-    profile_avatar = models.ImageField()
-    objects = QuestionManager()
-    def __str__(self):
-        return self.profile_login
-
-class Tags_Question(models.Model):
-    tag_question = models.CharField(max_length = 255)
-    objects = QuestionManager()
-    def __str__(self):
-        return self.tag_question
+class Tag(models.Model):
+	text = models.CharField(max_length=200)
 
 class Question(models.Model):
-    profile = models.ForeignKey(User, on_delete=models.PROTECT)
-    question_title = models.CharField(max_length = 255)
-    question_text = models.CharField(max_length = 255)
-    question_num_answers = models.IntegerField()
-    question_rank = models.IntegerField()
-    question_added_at = models.DateTimeField(default = datetime.datetime.now)
-    question_tag = models.ManyToManyField(Tags_Question)
-    objects = QuestionManager()
-    # list(question.tags_question_set)
-    def __str__(self):
-        return self.question_title
-
+	asking = models.ForeignKey(User, on_delete=models.PROTECT)
+	title = models.CharField(max_length=200, default='')
+	text = models.CharField(max_length=200)
+	ratin = models.IntegerField()
+	tags = models.ManyToManyField(Tag)
+	date = models.DateTimeField(default=timezone.now)
+	objects = ModelManager()
 
 class Answer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.PROTECT)
-    profile = models.ForeignKey(User, on_delete=models.PROTECT)
-    answer_text = models.CharField(max_length = 255)
-    answer_rank = models.CharField(max_length = 255)
-    answer_added_at = models.DateTimeField(default = datetime.datetime.now)
-    def __str__(self):
-        return self.answer_title
+	answerer = models.ForeignKey(User, on_delete=models.PROTECT)
+	question = models.ForeignKey(Question, on_delete=models.PROTECT)
+	text = models.CharField(max_length=200)
+	correct = models.BooleanField()
+	date = models.DateTimeField(default=timezone.now)
+	objects = ModelManager()
+
+class Like(models.Model):
+	user = models.ForeignKey(User, on_delete=models.PROTECT)
+	question = models.ForeignKey(Question, on_delete=models.PROTECT)
+	assessment = models.SmallIntegerField();
+	date = models.DateTimeField(auto_now=True)
 
 
-class Liked_Question(models.Model):
-    profile = models.ForeignKey(User, on_delete=models.PROTECT)
-    question = models.ForeignKey(Question, on_delete=models.PROTECT)
-    what_pressed = models.BooleanField()
-    def __str__(self):
-        return self.what_pressed
+
+
 
     # unique_together

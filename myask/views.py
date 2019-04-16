@@ -115,7 +115,7 @@ def new_question(request):
 
 def add_answer(request):
     q_id = request.GET.get('id')
-    question = Question.objects.get(pk = q_id)
+    question = Question.objects.get(pk = 1)
     answer_list = [ ]
     answer_list = Answer.objects.filter(question_id = q_id)
     current_page = listing(answer_list,request)
@@ -258,3 +258,46 @@ def listing(list,request):
         'pages' : pages,
         'num_pages' : int(paginator.num_pages),
     }
+
+
+
+
+
+
+
+# Create your views here.
+def paginate(objects_list, request):
+	paginator = Paginator(objects_list, 5)
+	page = request.GET.get('page')
+try:
+		questions = paginator.page(page)
+except PageNotAnInteger:
+		questions = paginator.page(1)
+except EmptyPage:
+		questions = paginator.page(paginator.num_pages)
+return questions
+
+def index(request):
+	objects_list = Question.objects.sortByDate()
+	topUsers = User.objects.bestUsers()
+	topTags = Question.objects.bestTags()
+	questions = paginate(objects_list, request)
+	context = {'questions' : questions, 'title' : 'Ask Project', 'topUsers' : topUsers, 'topTags': topTags}
+return(render(request,"", context))
+#return HttpResponse(request)
+
+def login(request):
+	question = "Question"
+	context = {'question' : question, 'title' : 'Ask Project'}
+return(render(request,"signup.html", context))
+def signup(request):
+	question = "Question"
+	context = {'question' : question, 'title' : 'Ask Project'}
+return(render(request,"signup.html", context))
+def ask(request):
+	question = "Question"
+	context = {'question' : question, 'title' : 'Ask Project'}
+return(render(request,"question_form.html", context))
+def presonal_page(request):
+	question = "Question"
+	context = {'question' : question, 'title' : 'Ask Project'}
