@@ -32,17 +32,12 @@
                   <ul class="navbar-nav mr-auto">
                   </ul>
                   <form class="form-inline mt-2 mt-md-0">
-                      <div class="media">
-                        <img src="images/s1200.jpeg"width= 70px height= 60px margin-left = 15px class="mr-3" alt="...">
-                    <div class="media-body">
+                      <div class="media-body">
                       <div>
-                          <label for="userName1">Dr.Pepper</label>
+                          <a href="#">log in</a>
                       </div>
                       <div>
-                          <a href="#">Settings</a>
-                      </div>
-                      <div>
-                          <a href="#">Log out</a>
+                          <a href="#">register</a>
                       </div>
                     </div>
                   </form>
@@ -53,9 +48,7 @@
     <main role="main" class="container">
           <div class="row">
               <div class="col-8">
-                <div class = "newquestion">New questions</div>
-                <a class = "hotquestion" href="#">Hot questions</a>
-                  <div class="row question_item">
+                  <div class="row one_question_item">
                       <div class="col-2">
                           <img src="images/s1200.jpeg" alt="">
                           <button type="button" class="btn btn-primary btn-sm">+</button>
@@ -68,9 +61,7 @@
                           <a href="{% url 'question' question.id %}"><h2>How to build a moon park?</h2></a>
                           <p>What is my question</p>
                           <div class="row">
-                            <button type="button" class="btn btn-primary">
-                              Answers <span class="badge badge-light">4</span>
-                            </button>
+
                               <div class="col">tags: <a href = "#">123 </a>, <a href = "#">123 </a></div>
                           </div>
                       </div>
@@ -89,9 +80,10 @@
                           <p>What is my question</p>
 
                           <div class="row">
-                            <button type="button" class="btn btn-primary">
-                              Answers <span class="badge badge-light">4</span>
-                            </button>
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheck1">
+                              <label class="custom-control-label" for="customCheck1">Correct!</label>
+                            </div>
                               <div class="col">tags: <a href = "#">123 </a>, <a href = "#">123 </a></div>
                           </div>
                       </div>
@@ -109,22 +101,32 @@
                           <a href="{% url 'question' question.id %}"><h2>How to build a moon park?</h2></a>
                           <p>What is my question</p>
                           <div class="row">
-                            <button type="button" class="btn btn-primary">
-                              Answers <span class="badge badge-light">4</span>
-                            </button>
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheck1">
+                              <label class="custom-control-label" for="customCheck1">Correct!</label>
+                            </div>
                               <div class="col">Tags: <a href = "#">123 </a>, <a href = "#">123 </a></div>
                           </div>
                       </div>
                   </div>
+                <div class = "formoneanswer">
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Enter your answer here</label>
+                    <textarea class="form-control3" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>
+                <div>
+                  <button1 class="btn btn-outline-success my-2 my-sm-0" type="submit">Answer</button1>
+                </div>
 
               </div>
               <div class="col-4">Popular Tags
                     <br>
-                    <a class="btn btn-primary" href=" #" id="Mail" role="button">Mail</a>
-                    <a class="btn btn-primary" href=" #" id="MySQL" role="button">MySQL</a>
-                    <a class="btn btn-primary" href=" #" id="TP" role="button">TP</a>
-                    <a class="btn btn-primary" href=" #" id="BS" role="button">BS</a>
-
+                    <a class="btn btn-primary" href="#" role="button">Mail</a>
+                    <button class="btn btn-primary" type="submit">MySQL</button>
+                    <input class="btn btn-primary" type="button" value="TP">
+                    <input class="btn btn-primary" type="submit" value="Bootstrap">
+                    <input class="btn btn-primary" type="reset" value="Reset">
                     <br><br><br>
                     <h4>Best Members</h4>
                     <a class="navbar-brand1" href="#">Mr. Freeman</a>
@@ -143,17 +145,6 @@
 
 
 
-<padding>
-  <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-  </nav>
-</padding>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

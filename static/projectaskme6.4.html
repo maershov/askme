@@ -53,16 +53,11 @@
     <main role="main" class="container">
           <div class="row">
               <div class="col-8">
-                <div class = "newquestion">New questions</div>
-                <a class = "hotquestion" href="#">Hot questions</a>
+                <div class = "newquestion">Tag:</div>
+                <label for="Tag">Bender</label>
                   <div class="row question_item">
                       <div class="col-2">
                           <img src="images/s1200.jpeg" alt="">
-                          <button type="button" class="btn btn-primary btn-sm">+</button>
-                          <button type="button" class="btn btn-secondary btn-sm">-</button>
-                          <div>
-                              <label class = "plusminus" for="plusminus">5</label>
-                          </div>
                       </div>
                       <div class="col-10">
                           <a href="{% url 'question' question.id %}"><h2>How to build a moon park?</h2></a>
@@ -99,11 +94,6 @@
                   <div class="row question_item">
                       <div class="col-2">
                           <img src="images/s1200.jpeg" alt="">
-                          <button type="button" class="btn btn-primary btn-sm">+</button>
-                          <button type="button" class="btn btn-secondary btn-sm">-</button>
-                          <div>
-                              <label class = "plusminus" for="plusminus">5</label>
-                          </div>
                       </div>
                       <div class="col-10">
                           <a href="{% url 'question' question.id %}"><h2>How to build a moon park?</h2></a>
@@ -120,11 +110,11 @@
               </div>
               <div class="col-4">Popular Tags
                     <br>
-                    <a class="btn btn-primary" href=" #" id="Mail" role="button">Mail</a>
-                    <a class="btn btn-primary" href=" #" id="MySQL" role="button">MySQL</a>
-                    <a class="btn btn-primary" href=" #" id="TP" role="button">TP</a>
-                    <a class="btn btn-primary" href=" #" id="BS" role="button">BS</a>
-
+                    <a class="btn btn-primary" href="#" role="button">Mail</a>
+                    <button class="btn btn-primary" type="submit">MySQL</button>
+                    <input class="btn btn-primary" type="button" value="TP">
+                    <input class="btn btn-primary" type="submit" value="Bootstrap">
+                    <input class="btn btn-primary" type="reset" value="Reset">
                     <br><br><br>
                     <h4>Best Members</h4>
                     <a class="navbar-brand1" href="#">Mr. Freeman</a>

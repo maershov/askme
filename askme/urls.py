@@ -18,7 +18,7 @@ from django.contrib import admin
 from myask import views as ask_views
 
 urlpatterns = [
-    
+
     url(r'^signup/?',ask_views.signup, name='signup'),
     url(r'^logout/?',ask_views.logout, name='logout'),
     url(r'^question/?', ask_views.question_answer, name='question_answer'),

@@ -1,0 +1,89 @@
+<!-- {% extends 'Base.html' %}
+
+{% block mainblock %}
+
+ <div class="col-lg-7 co-md-7">
+        <div class="row">
+            <div class="col-lg-12">
+                <font size="7" align="left"> Log In</font>
+                <h3 style="color: red;">No such user</h3>
+                <form action="{% url 'ask:check_sign_up' question.id %}" method="post" >
+                    {{form}}
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <button type="submit" class="btn btn-default">Log In</button>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="submit" class="btn btn-default">Create new account</button>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="submit" class="btn btn-default">Remind Password</button>
+                        </div>
+                        <div class="col-lg-7"></div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+{% endblock %} -->
+
+
+
+
+
+
+{% extends 'Base.html' %}
+
+{% block mainblock %}
+
+
+  <main>
+    <main role="main" class="container">
+          <div class="row">
+              <div class="col-8">
+                <div class = "newquestion">Log in</div>
+                <div class = "wrongpassword">Sorry, wrong password!</div>
+
+
+                <form action="{% url 'ask:check_sign_up' question.id %}" method="post" >
+                      {{form}}
+                  <!-- <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
+                  </div> -->
+
+                  <div class="form-group row">
+                    <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary">Log in</button>
+                    </div>
+                  </div>
+                  <div>
+                    <u>
+                    <logreg>
+                      <a href="#">create new account</a>
+                    </logreg>
+                    </u>
+                  </div>
+                </form>
+
+      </main>
+  </main>
+
+  {% endblock %}
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>

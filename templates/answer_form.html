@@ -1,4 +1,4 @@
-{% extends 'Base.html' %}
+<!-- {% extends 'Base.html' %}
 
 {% block mainblock %}
     <div class="container row">
@@ -90,4 +90,92 @@
             {% include 'paganswer.html' %}
         </div>
         <div class="col-lg-3 col-md-3">
-{% endblock %}
+{% endblock %} -->
+
+
+
+{% extends 'Base.html' %}
+
+{% block mainblock %}
+
+  <main>
+    <main role="main" class="container">
+          <div class="row">
+              <div class="col-8">
+                  <div class="row one_question_item">
+                      <div class="col-2">
+                          <div style="margin-left:45px" ><a href="{% url 'question_answer'%}">{{contact.profile.username}}</a></div>
+                          <img src="images/s1200.jpeg" alt="">
+                          <a href="{% url 'question_answer'%}" type="button" class="btn btn-primary btn-sm">+</a>
+                          <a href="{% url 'question_answer'%}" type="button" class="btn btn-primary btn-sm">-</a>
+                          <div>
+                              <label class = "plusminus" for="plusminus">{{ contact.answer_rank }}</label>
+                          </div>
+                      </div>
+
+
+
+                      <div class="col-10">
+                          <a href="{% url 'question' question.id %}"><h2>{{ question.question_title }}</h2></a>
+                          <p>{{ question.question_text }}</p>
+                          <div class="row">
+
+                              <div class="col">Tags:{%for tag in question.question_tag.all%} <a href = "{%url 'tag_search'%}/?tag={{tag}}">123 </a> {%endfor%} </div>
+                              <div <h7> Answers : {{question.question_num_answers}}</h7> </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  {% for contact in contacts %}
+                  <div class="row question_item">
+                    <a name = "{{ contact.id }}"></a>
+                      <div class="col-2">
+                          <div style="margin-left:45px" ><a href="{% url 'question_answer'%}">{{contact.profile.username}}</a></div>
+                          <img src="images/s1200.jpeg" alt="">
+                          <a href="{% url 'question_answer'%}" type="button" class="btn btn-primary btn-sm">+</a>
+                          <a href="{% url 'question_answer'%}" type="button" class="btn btn-primary btn-sm">-</a>
+                          <div>
+                              <label class = "plusminus" for="plusminus">{{ contact.answer_rank }}</label>
+                          </div>
+                      </div>
+                      <div class="col-10">
+                          <a href="{% url 'question' question.id %}"><h2>{{ question.question_title }}</h2></a>
+                          <p>{{contact.answer_text}}</p>
+
+                          <div class="row">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheck1">
+                              <label class="custom-control-label" for="customCheck1">Correct!</label>
+
+                      </div>
+                  </div>
+
+
+
+                  {% endfor %}
+                  {% if user.is_authenticated %}
+
+
+                <div class = "formoneanswer">
+                  <form action="/add_answer/?id={{question.id}}" method="POST">
+                      {% csrf_token %}
+                      {% for form in form.visible_fields %}
+                  <div class="form-group">
+                    <label {% if form.errors %} style = "color: red" {% endif %} for="{{ form.id_for_label }}"> {{ form.label }}</label>
+                    {{ form }}
+                    <textarea class="form-control3" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                  {% endfor %}
+
+                <div>
+                  <button1 class="btn btn-outline-success my-2 my-sm-0" type="submit">Answer</button1>
+                </div>
+                </form>
+                {% endif %}
+                {% include 'paganswer.html' %}
+              </div>
+
+              {% endblock %}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>
