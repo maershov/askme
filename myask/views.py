@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -257,47 +256,9 @@ def listing(list,request):
         'current' : page,
         'pages' : pages,
         'num_pages' : int(paginator.num_pages),
-    }
 
-
-
-
-
-
-
-# Create your views here.
-def paginate(objects_list, request):
-	paginator = Paginator(objects_list, 5)
-	page = request.GET.get('page')
-try:
-		questions = paginator.page(page)
-except PageNotAnInteger:
-		questions = paginator.page(1)
-except EmptyPage:
-		questions = paginator.page(paginator.num_pages)
-return questions
-
-def index(request):
-	objects_list = Question.objects.sortByDate()
-	topUsers = User.objects.bestUsers()
-	topTags = Question.objects.bestTags()
-	questions = paginate(objects_list, request)
-	context = {'questions' : questions, 'title' : 'Ask Project', 'topUsers' : topUsers, 'topTags': topTags}
-return(render(request,"", context))
-#return HttpResponse(request)
 
 def login(request):
-	question = "Question"
-	context = {'question' : question, 'title' : 'Ask Project'}
-return(render(request,"signup.html", context))
-def signup(request):
-	question = "Question"
-	context = {'question' : question, 'title' : 'Ask Project'}
-return(render(request,"signup.html", context))
-def ask(request):
-	question = "Question"
-	context = {'question' : question, 'title' : 'Ask Project'}
-return(render(request,"question_form.html", context))
-def presonal_page(request):
-	question = "Question"
-	context = {'question' : question, 'title' : 'Ask Project'}
+	question = "Is login user"
+	context = {'question' : question, 'title' : 'Ask_me project'}
+return(render(request,"login.html", context))
